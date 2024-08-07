@@ -1,33 +1,37 @@
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
+document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.querySelector('#menu-icon');
+    const navbar = document.querySelector('.navbar');
+    const navLinksContainer = document.querySelector('#nav-links');
+    const navLinks = document.querySelectorAll('header a');
+    const sections = document.querySelectorAll('section');
 
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx bx-x');
-    navbar.classList.toggle('active');
-} 
+    menuIcon.onclick = () => {
+        menuIcon.classList.toggle('bx-x');
+        navLinksContainer.classList.toggle('show');
+    };
 
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
+    window.onscroll = () => {
+        let scrollPosition = window.scrollY;
 
-window.onscroll = () => {
-    sections.forEach(sec => {
-        let top =window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
+        sections.forEach(section => {
+            let offset = section.offsetTop - 150;
+            let height = section.offsetHeight;
+            let id = section.getAttribute('id');
 
-        if(top >= offset && top < offset + height){
-            navLinks. forEach.apply(links=> {
-                links.classList.remove('active');
-                document.querySelector('header nav a[href*-' + id +']').classList.add('active')
+            if (scrollPosition >= offset && scrollPosition < offset + height) {
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    document.querySelector(`header a[href*=${id}]`).classList.add('active');
+                });
+            }
+        });
 
-            });
-        };
-    });
+        let header = document.querySelector('header');
+        header.classList.toggle('sticky', window.scrollY > 100);
 
-    let header= document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
+        // Remove active classes when scrolling
+        menuIcon.classList.remove('bx-x');
+        navLinksContainer.classList.remove('show');
+    };
+});
 
-    menuIcon.classList.remove('bx bx-x');
-    navbar.classList.remove('active');
-};
