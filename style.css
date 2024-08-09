@@ -24,10 +24,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2rem;
+    padding: 2rem; 
 
 }
 
+.sidebar li{
+    display: none;
+}
 .navbar ul{
     display: flex;
     justify-content: space-between;
@@ -165,36 +168,37 @@ body{
         display: block;
        
     }
+
+    .hori-navbar li{
+        display: none;
+    }
+
+    .sidebar li{
+        display: block;
+    }
     
-    #nav-links{
-       display: none;
-       flex-direction: column;
-       align-items: flex-start;
-       background-color: white;
-       width: 100%;
-       padding: 1rem 0;
-    }
-
-    #nav-links.show{
-        display: flex;
-    }
-
-    .navbar ul li {
-        width: 100%;
-        padding: 1rem 2%;
-        text-align: left;
-    }
-
-    .sticky {
+    .sidebar{
         position: fixed;
         top: 0;
-        width: 100%;
-        z-index: 1000;
-        background-color: #333;
+        right: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: 999; 
+        background-color: rgba(255, 255, 255, 0.247);
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;    
     }
     
-    .active {
-        color: yellow;
+    .sidebar li{
+        width: 100%;
+    }
+
+    .sidebar a{
+        width: 100%;
     }
 
     .container{
