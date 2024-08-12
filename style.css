@@ -14,38 +14,62 @@ body{
     
 }
 
-
-.navbar h2{
-    font-size: 3rem;
-    padding-left: 4rem;
+nav{
+    background-color: white;
 }
-.navbar{
+
+nav ul{
     width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+
+nav li{
+    height: 50px;
+}
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 2rem; 
+    color: black;
+    font-weight: 600;
+}
+
+nav li:first-child{
+    margin-right: auto;
+    padding:3rem;
+    font-size: 3rem;
+    
+}
+
+.sidebar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.623);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 
 }
 
 .sidebar li{
-    display: none;
-}
-.navbar ul{
-    display: flex;
-    justify-content: space-between;
+    width: 100%;
 }
 
-.navbar ul li{
-    list-style: none;
-}
-
-.navbar ul li a{
-    text-decoration: none;
-    color: black;
-    margin-right: 3.2rem;
-    font-weight: 600;
-    font-size: 1.2rem;
+.sidebar a{
+    width: 100%;
 }
 
 .container{
@@ -162,45 +186,21 @@ body{
     
 }
 
+
 @media (max-width: 768px){
 
     #menu-icon{
         display: block;
-       
     }
 
-    .hori-navbar li{
+    .hideonmobile{
         display: none;
     }
 
-    .sidebar li{
-        display: block;
+    nav li:first-child{
+        margin-right:auto;
+        padding: 0;
     }
-    
-    .sidebar{
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 250px;
-        z-index: 999; 
-        background-color: rgba(255, 255, 255, 0.247);
-        backdrop-filter: blur(10px);
-        box-shadow: -10px 0 10px rgba(0,0,0,0.1);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;    
-    }
-    
-    .sidebar li{
-        width: 100%;
-    }
-
-    .sidebar a{
-        width: 100%;
-    }
-
     .container{
         display: flex;
         flex-direction: column;
